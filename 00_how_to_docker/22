@@ -1,0 +1,4 @@
+eval $(docker-machine env Char)
+SWARM_TOKEN=$(docker swarm join-token -q worker)
+eval $(docker-machine env Aiur)
+docker swarm join --token $SWARM_TOKEN $(docker-machine ip Char):2377
